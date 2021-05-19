@@ -46,7 +46,7 @@ df_map = iris_df['target'].map(dict1)
 print(df_map)
 
 
-# In[6]:
+# In[5]:
 
 
 #변환한 데이터를 다시 원상복구해보기
@@ -64,7 +64,7 @@ print(df_map2)
 # - 먼저 학습을 시킨다.(fit) => encoder1.fit(df[column])
 # - 학습을 토대로 변환(transform) = > encoder1.transform(df[column])
 
-# In[7]:
+# In[6]:
 
 
 # LableEncoder
@@ -83,13 +83,13 @@ df_enc1
 # - 시각화할 때도 도움이 될 수 있다.
 # - target값을 제외한 모든 컬럼
 
-# In[8]:
+# In[7]:
 
 
 iris_df
 
 
-# In[9]:
+# In[8]:
 
 
 # 표준화 작업을 위해 결과 데이터를 제외한다.
@@ -97,10 +97,14 @@ X = iris_df.drop('target', axis=1)
 X
 
 
-# In[ ]:
+# In[9]:
 
 
-
+# 입력 데이터에 대한 표준화
+scaler1 = StandardScaler()
+scaler1.fit(X)
+X = scaler1.transform(X)
+X
 
 
 # In[ ]:
